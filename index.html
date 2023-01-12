@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karan's Text Editor</title>
+    
+<style>
+    *{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+body{
+    width: 300px;
+    height: 200px;
+    padding: 1rem;
+
+    font-family: Calibri, sans-serif;
+    line-height: 2rem;
+}
+.input{
+    border: 1px solid rgb(75, 75, 75);
+    border-radius: 3px;
+    padding: .5rem;
+    width: 100%;
+}
+.btn{
+    padding: .5rem;
+    width: 5rem;
+    border: 0px;
+    color: white;
+}
+#save{
+    background-color: #449D44;
+}
+#clear{
+    background-color: #C9302C;
+}
+
+/* .align-icon
+{
+    height: 18px;
+    width: 18px;
+} */
+</style>
+</head>
+<body>
+<div class="container pt-2">
+<!-- <button class="btn btn-outline-secondary" id="bold"><b>B</b></button> 
+<button class="btn btn-outline-secondary" id="italics"><i>I</i></button>
+<button class="btn btn-outline-secondary" id="underline"><u>U</u></button>
+<button class="btn btn-outline-secondary" id="bullet"><img class="align-icon" src="./image/format_list_bulleted_FILL0_wght400_GRAD0_opsz48.png"></button>
+<button class="btn btn-outline-secondary" id="number"><img class="align-icon" src="./image/format_list_numbered_FILL0_wght400_GRAD0_opsz48.png"></button>
+<button class="btn btn-outline-secondary" id="align-left"><img class="align-icon" src="./image/format_align_left_FILL0_wght400_GRAD0_opsz48.png"></button>
+<button class="btn btn-outline-secondary" id="align-center"><img class="align-icon" src="./image/format_align_center_FILL0_wght400_GRAD0_opsz48.png"></button>
+<button class="btn btn-outline-secondary" id="align-right"><img class="align-icon" src="./image/format_align_right_FILL0_wght400_GRAD0_opsz48.png"></button>
+<button class="btn btn-outline-secondary" id="align-justify"><img class="align-icon" src="./image/format_align_justify_FILL0_wght400_GRAD0_opsz48.png"></button>
+<button class="btn btn-outline-secondary" id="line-spacing"><img class="align-icon" src="./image/format_line_spacing_FILL0_wght400_GRAD0_opsz48.png"></button>
+<button class="btn btn-outline-secondary" id="indent"><img class="align-icon" src="./image/format_indent_decrease_FILL0_wght400_GRAD0_opsz48.png"></button>
+
+<br>
+<br> -->
+<div class="mb-3">
+    <label for="" class="">Title</label><br>
+    <input type="text" class="input" id="title" placeholder="Enter your Title">
+  </div><Br>
+<div class="mb-3">
+    <label for="textarea" class="">Type your Text</label><Br>
+    <textarea class="input" id="textarea" cols="60" rows="13"></textarea>
+  </div>
+<button class="btn" id="save">Save</button>
+<button class="btn" id="clear">Clear</button>
+</div>
+<br>
+
+<script type="text/javascript">
+    var save = document.getElementById("save");
+
+document.getElementById("clear").onclick = function (){
+var title = document.getElementById("title");
+var textarea = document.getElementById("textarea") ;
+title.value = "";
+textarea.value ="";
+
+}
+
+var title = document.getElementById("title").value;
+var textarea = document.getElementById("textarea").value;
+var saveText = document.createTextNode(textarea);
+
+function createTxtFile (title,textarea){
+var element = document.createElement('a');
+element.style.display = "none";
+element.setAttribute('href','data:text/plain;charset-utf-8,'+encodeURIComponent(textarea));
+element.setAttribute('download',title);
+/* console.log(saveText); */
+document.body.appendChild(element);
+element.click();
+document.body.removeChild(element);
+}
+
+document.getElementById("save").addEventListener("click", function()
+{
+var title = document.getElementById("title").value;
+var textarea = document.getElementById("textarea").value;
+createTxtFile(title,textarea);
+}, false);
+
+
+</script>
+</body>
+</html>
