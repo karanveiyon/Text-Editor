@@ -13,12 +13,15 @@
     box-sizing: border-box;
 }
 body{
-    width: 300px;
-    height: 200px;
     padding: 1rem;
-
     font-family: Calibri, sans-serif;
     line-height: 2rem;
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+}
+h3{
+    text-align: center;
 }
 .input{
     border: 1px solid rgb(75, 75, 75);
@@ -28,9 +31,11 @@ body{
 }
 .btn{
     padding: .5rem;
-    width: 5rem;
+    width: 8rem;
     border: 0px;
     color: white;
+    font-size: medium;
+    font-weight: bold;
 }
 #save{
     background-color: #449D44;
@@ -48,44 +53,29 @@ body{
 </head>
 <body>
 <div class="container pt-2">
-<!-- <button class="btn btn-outline-secondary" id="bold"><b>B</b></button> 
-<button class="btn btn-outline-secondary" id="italics"><i>I</i></button>
-<button class="btn btn-outline-secondary" id="underline"><u>U</u></button>
-<button class="btn btn-outline-secondary" id="bullet"><img class="align-icon" src="./image/format_list_bulleted_FILL0_wght400_GRAD0_opsz48.png"></button>
-<button class="btn btn-outline-secondary" id="number"><img class="align-icon" src="./image/format_list_numbered_FILL0_wght400_GRAD0_opsz48.png"></button>
-<button class="btn btn-outline-secondary" id="align-left"><img class="align-icon" src="./image/format_align_left_FILL0_wght400_GRAD0_opsz48.png"></button>
-<button class="btn btn-outline-secondary" id="align-center"><img class="align-icon" src="./image/format_align_center_FILL0_wght400_GRAD0_opsz48.png"></button>
-<button class="btn btn-outline-secondary" id="align-right"><img class="align-icon" src="./image/format_align_right_FILL0_wght400_GRAD0_opsz48.png"></button>
-<button class="btn btn-outline-secondary" id="align-justify"><img class="align-icon" src="./image/format_align_justify_FILL0_wght400_GRAD0_opsz48.png"></button>
-<button class="btn btn-outline-secondary" id="line-spacing"><img class="align-icon" src="./image/format_line_spacing_FILL0_wght400_GRAD0_opsz48.png"></button>
-<button class="btn btn-outline-secondary" id="indent"><img class="align-icon" src="./image/format_indent_decrease_FILL0_wght400_GRAD0_opsz48.png"></button>
-
-<br>
-<br> -->
 <div class="mb-3">
+    <h3>Text Editor</h3>
     <label for="" class="">Title</label><br>
     <input type="text" class="input" id="title" placeholder="Enter your Title">
   </div><Br>
 <div class="mb-3">
     <label for="textarea" class="">Type your Text</label><Br>
-    <textarea class="input" id="textarea" cols="60" rows="13"></textarea>
-  </div>
+    <textarea class="input" id="textarea" rows="18"></textarea>
+  </div><br>
 <button class="btn" id="save">Save</button>
 <button class="btn" id="clear">Clear</button>
 </div>
 <br>
 
 <script type="text/javascript">
-    var save = document.getElementById("save");
-
 document.getElementById("clear").onclick = function (){
 var title = document.getElementById("title");
 var textarea = document.getElementById("textarea") ;
 title.value = "";
 textarea.value ="";
-
 }
 
+var save = document.getElementById("save");
 var title = document.getElementById("title").value;
 var textarea = document.getElementById("textarea").value;
 var saveText = document.createTextNode(textarea);
@@ -103,9 +93,14 @@ document.body.removeChild(element);
 
 document.getElementById("save").addEventListener("click", function()
 {
+
 var title = document.getElementById("title").value;
 var textarea = document.getElementById("textarea").value;
-createTxtFile(title,textarea);
+if (title == "" || textarea == ""){
+    alert("Please enter Title and Subject")
+}
+else{
+createTxtFile(title,textarea);}
 }, false);
 
 
