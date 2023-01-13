@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karan's Text Editor</title>
+    <title>Techscription's Text Editor</title>
     
 <style>
     *{
@@ -19,6 +19,9 @@ body{
     width: 80%;
     margin: auto;
     justify-content: center;
+}
+#head-btn{
+    padding: .1rem;
 }
 h3{
     text-align: center;
@@ -37,6 +40,11 @@ h3{
     font-size: medium;
     font-weight: bold;
 }
+#defaultCode{
+padding: .2rem;
+border: solid 1px gray;
+
+}
 #save{
     background-color: #449D44;
 }
@@ -52,14 +60,14 @@ h3{
 </style>
 </head>
 <body>
-<div class="container pt-2">
-<div class="mb-3">
-    <h3>Text Editor</h3>
+<div>
+<div>
+    <h3><button id="head-btn">&gt;_</button> Techscription Text Editor</h3>
     <label for="" class="">Title</label><br>
     <input type="text" class="input" id="title" placeholder="Enter your Title">
   </div><Br>
-<div class="mb-3">
-    <label for="textarea" class="">Type your Text</label><Br>
+<div>
+    <label for="textarea" class="">Type your Text</label> <button  id="defaultCode">&lt;/&gt; Basic Code</button><Br>
     <textarea class="input" id="textarea" rows="18"></textarea>
   </div><br>
 <button class="btn" id="save">Save</button>
@@ -90,6 +98,15 @@ document.body.appendChild(element);
 element.click();
 document.body.removeChild(element);
 }
+
+document.getElementById("defaultCode").onclick= function (){
+var header = String("<!DOCTYPE html>"+"\n"+"<html>"+"\n"+"<head>"+"\n"+"<title>Document</title>"+"\n"+"<style> </style>"+"\n"+"</head>" +"\n");
+var slash = "/";
+var bodyTag = String("<body>"+"\n"+"<script> <"+slash+"script>"+"\n"+"<"+slash+"body>"+"\n"+"<"+slash+"html>");
+
+document.getElementById("textarea").value = header+bodyTag;
+}
+
 
 document.getElementById("save").addEventListener("click", function()
 {
