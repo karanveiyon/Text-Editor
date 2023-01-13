@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Techscription's Text Editor</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
     
 <style>
     *{
@@ -12,16 +13,25 @@
     margin: 0%;
     box-sizing: border-box;
 }
-body{
+body .content{
     padding: 1rem;
     font-family: Calibri, sans-serif;
     line-height: 2rem;
     width: 80%;
     margin: auto;
     justify-content: center;
+    min-height: 100vh;
+}
+.dark-mode{
+    background-color: black;
+  color: white;
+  
 }
 #head-btn{
-    padding: .1rem;
+    padding: .2rem;
+    background-color: black;
+    color: white;
+    border: 0px;
 }
 h3{
     text-align: center;
@@ -60,11 +70,11 @@ border: solid 1px gray;
 </style>
 </head>
 <body>
+<div class="content" id="content">
 <div>
-<div>
-    <h3><button id="head-btn">&gt;_</button> Techscription Text Editor</h3>
+    <h3><button id="head-btn"><b>&gt;_</b></button> Techscription Text Editor</h3>
     <label for="" class="">Title</label><br>
-    <input type="text" class="input" id="title" placeholder="Enter your Title">
+    <input type="text" class="input" id="title" placeholder="Enter your Title eg: for HTML (index.html); for CSS (index.css); for JS (index.js)">
   </div><Br>
 <div>
     <label for="textarea" class="">Type your Text</label> <button  id="defaultCode">&lt;/&gt; Basic Code</button><Br>
@@ -76,6 +86,15 @@ border: solid 1px gray;
 <br>
 
 <script type="text/javascript">
+//dark mode
+document.getElementById("head-btn").onclick =function darkMode() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+   document.getElementById("head-btn").style.color = "black";
+    document.getElementById("head-btn").style.backgroundColor = "white";
+}
+
+
 document.getElementById("clear").onclick = function (){
 var title = document.getElementById("title");
 var textarea = document.getElementById("textarea") ;
